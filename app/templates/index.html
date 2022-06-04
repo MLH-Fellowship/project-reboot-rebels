@@ -1,7 +1,18 @@
 {% extends "base.html" %}
+{% block head %}
+        <title>Cyber Sapiens Home</title>
+        <link type="text/css" href="{{url_for('static', filename='../static/styles/index.css')}}" rel='stylesheet' />
+    {% endblock %}
 {% block content %}
+<div class="hero-section">
+    <video autoplay muted loop preload="auto" class="video">
+        <source src="../static/vid/cyber.mp4" type="video/mp4">
+    </video>
+    <div class="hero-wrapper">
 
-<h1>Hi, we are team 3 of {{title}}</h1>
-<p>Welcome to our portfolio.</p>
+       <h1 class="hero-heading">{{title}}<br>3.0<br></h1>
+       <p class="hero-paragraph">Welcome to our portfolio</p>
+    </div>
+ </div>
 
 {% endblock %}
