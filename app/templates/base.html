@@ -1,15 +1,19 @@
 <!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <link type="text/css" href="{{url_for('static', filename='../static/styles/main.css')}}" rel='stylesheet' />
+</head>
 <html>
   <body>
     <!-- Insert navigation bar
     HTML below -->
-    <div class="navbar-2">
-      <div class="container w-container">
-         <a href="/" class="logo"><img src="../static/img/favicon.ico"></a>
-         <nav class="nav w-nav-menu">
-          <a href="/" class="nav-component w-nav-link">Home</a>
-            <a href="/about" class="nav-component w-nav-link">About Us</a>
-            <a href="timeline" class="nav-component w-nav-link">Our Timeline</a>
+    <div class="navbar">
+      <div class="container">
+         <a href="/"><img src="../static/img/favicon.ico"></a>
+         <nav class="nav">
+          <a href="/" class="nav-component link">Home</a>
+            <a href="/about" class="nav-component link">About Us</a>
+            <a href="timeline" class="nav-component link">Our Timeline</a>
          </nav>
       </div>
    </div>
