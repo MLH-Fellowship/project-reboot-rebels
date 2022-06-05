@@ -1,14 +1,15 @@
 import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
-from data import profiles
+from .data import profiles
 
 load_dotenv()
 app = Flask(__name__)
 
-@app.route('/timeline')
+
+@app.route("/timeline")
 def timeline():
-    return render_template('timeline.html', timeline_profiles=profiles)
+    return render_template("timeline.html", timeline_profiles=profiles())
 
 
 @app.route("/")
@@ -21,6 +22,6 @@ def about_us():
     return render_template("about.html")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.debug = True
-    app.run(host="0.0.0.0") 
+    app.run(host="0.0.0.0")
