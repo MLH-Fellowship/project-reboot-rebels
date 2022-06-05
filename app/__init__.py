@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
-from .data import profiles
+from data import profiles
 
 load_dotenv()
 app = Flask(__name__)
