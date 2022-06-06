@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <head>
-  {% block head %}
-  {% endblock %}
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link type="text/css" href="{{url_for('static', filename='../static/styles/main.css')}}" rel='stylesheet' />
+  {% block head %} {% endblock %}
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link
+    type="text/css"
+    href="{{url_for('static', filename='../static/styles/main.css')}}"
+    rel="stylesheet"
+  />
 </head>
 <html>
   <body>
@@ -12,15 +15,14 @@
     HTML below -->
     <div class="navbar">
       <div class="container">
-         <a href="/"><img src="/static/img/favicon.ico"></a>
-         <nav class="nav">
+        <a href="/"><img src="/static/img/favicon.ico" /></a>
+        <nav class="nav">
           <a href="/" class="nav-component link">Home</a>
-            <a href="/about" class="nav-component link">About Us</a>
-            <a href="/timeline" class="nav-component link">Our Timeline</a>
-         </nav>
+          <a href="/maps" class="nav-component link">Maps</a>
+          <a href="/timeline" class="nav-component link">Our Timeline</a>
+        </nav>
       </div>
-   </div>
-    {% block content %}
-    {% endblock %}
+    </div>
+    {% block content %} {% endblock %}
   </body>
 </html>
