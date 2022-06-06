@@ -1,4 +1,4 @@
-
+@import url('http://fonts.cdnfonts.com/css/trench');
 html {
     height: 100%;
   }
@@ -6,7 +6,7 @@ html {
     margin: 0;
     min-height: 100%;
     background-color: #fff;
-    font-family: Arial, sans-serif;
+    font-family: 'Trench', sans-serif;
     font-size: 14px;
     line-height: 20px;
     color: #333;
@@ -16,7 +16,19 @@ html {
     vertical-align: middle;
     display: inline-block;
   }
-  
+  h1 {
+    color: #fff;
+    background-image: linear-gradient(to right, #FFA500 0%, #6a0dad  51%);
+    margin: 10px;
+    padding: 15px 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;           
+    border-radius: 10px;
+    display: block;
+  }  
+ 
   .margin-bottom-xlarge {
     margin-bottom: 56px;
   }
