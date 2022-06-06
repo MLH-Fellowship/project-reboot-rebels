@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
-from .data import profiles
+from data import profiles
 
 load_dotenv()
 app = Flask(__name__)
@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/timeline")
 def timeline():
-    return render_template("timeline.html", timeline_profiles=profiles())
+    return render_template("timeline.html", timeline_profiles=profiles)
 
 
 @app.route("/")
