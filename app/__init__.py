@@ -19,7 +19,7 @@ def index():
 
 @app.route("/about")
 def about_us():
-    return render_template("about.html")
+    return render_template("about.html", apikey=os.getenv("mapkey"))
 
 
 if __name__ == "__main__":
