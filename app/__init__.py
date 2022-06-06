@@ -1,14 +1,17 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, json
 from dotenv import load_dotenv
-from data import profiles
+import json
 
 load_dotenv()
 app = Flask(__name__)
+data_file = open('app/static/data/profile.json')
+data = json.load(data_file)
+
 
 @app.route('/timeline')
 def timeline():
-    return render_template('timeline.html', timeline_profiles=profiles)
+    return render_template('timeline.html', timeline_profiles=data)
 
 
 @app.route("/")
