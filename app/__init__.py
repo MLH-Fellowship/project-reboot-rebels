@@ -24,6 +24,9 @@ rhobbies_file = open("app/static/data/hobbies.json")
 rhobbies = json.load(rhobbies_file)
 
 
+phobbies_file = open("app/static/data/phobbies.json")
+phobbies = json.load(phobbies_file)
+
 @app.route("/")
 def index():
     return render_template("index.html", title="Cyber Sapiens", url=os.getenv("URL"))
@@ -48,6 +51,9 @@ def experiencep():
 def hobbiesr():
     return render_template("rhobbies.html", rhobbies=rhobbies)
 
+@app.route("/timeline/Pedro/hobbies")
+def hobbiesp():
+    return render_template("phobbies.html", phobbies=phobbies)
 
 # Maps Section
 @app.route("/maps")
