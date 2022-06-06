@@ -1,0 +1,72 @@
+{% extends "base.html" %} {% block head %}
+
+<title>Cyber Sapiens About Us</title>
+<link
+  type="text/css"
+  href="{{url_for('static', filename='../static/styles/maps.css')}}"
+  rel="stylesheet"
+/>
+<script src="{{url_for('static', filename='../static/maps.js')}}"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+{% endblock %} {% block content %}
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/handlebars/4.7.7/handlebars.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script>
+      const CONFIGURATION = {
+        "locations": [
+          {"title":"Vero Beach","address1":"Vero Beach","address2":"FL, USA","coords":{"lat":27.638830818242692,"lng":-80.3972038625656},"placeId":"ChIJpcLQYORe3ogRpCX3qKWu4bw"},
+          {"title":"Orlando International Airport","address1":"1 Jeff Fuqua Blvd","address2":"Orlando, FL 32827, USA","coords":{"lat":28.41812842024396,"lng":-81.30413973558197},"placeId":"ChIJ85K0xidj54gRbeERlDa5Sq0"}
+        ],
+        "mapOptions": {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17},
+        "mapsApiKey": "AIzaSyB9wF1zxtj0F9iHqYuiyWlIoqocLRGeaXk",
+        "capabilities": {"input":true,"autocomplete":false,"directions":false,"distanceMatrix":false,"details":false}
+      };
+
+      function initMap() {
+        new LocatorPlus(CONFIGURATION);
+      }
+    </script>
+    <script id="locator-result-items-tmpl" type="text/x-handlebars-template">
+        <li class="location-result" data-location-index="{{index}}">
+          <button class="select-location">
+            <h2 class="name">{{title}}</h2>
+          </button>
+          <div class="address">{{address1}}<br>{{address2}}</div>
+        </li>
+     
+    </script>
+  </head>
+  <body>
+    <div id="map-container">
+      <div id="locations-panel">
+        <div id="locations-panel-list">
+          <header>
+            <h1 class="search-title">
+              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/place/v15/24px.svg"/>
+              Find a location near you
+            </h1>
+            <div class="search-input">
+              <input id="location-search-input" placeholder="Enter your address or zip code">
+              <div id="search-overlay-search" class="search-input-overlay search">
+                <button id="location-search-button">
+                  <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/search/v11/24px.svg" alt="Search"/>
+                </button>
+              </div>
+            </div>
+          </header>
+          <div class="section-name" id="location-results-section-name">
+            All locations
+          </div>
+          <div class="results">
+            <ul id="location-results-list"></ul>
+          </div>
+        </div>
+      </div>
+      <div id="gmp-map"></div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{apikey}}&callback=initMap&libraries=places,geometry&solution_channel=GMP_QB_locatorplus_v4_cA" async defer></script>
+
+{% endblock %}

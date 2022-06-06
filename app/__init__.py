@@ -5,22 +5,22 @@ import json
 
 load_dotenv()
 app = Flask(__name__)
-profile_file = open('app/static/data/profile.json')
+profile_file = open("app/static/data/profile.json")
 profile = json.load(profile_file)
 
-experience_file = open('app/static/data/exp.json')
+experience_file = open("app/static/data/exp.json")
 experience = json.load(experience_file)
 
-education_file = open('app/static/data/edu.json')
+education_file = open("app/static/data/edu.json")
 education = json.load(education_file)
 
-pexperience_file = open('app/static/data/pexp.json')
+pexperience_file = open("app/static/data/pexp.json")
 pexperience = json.load(pexperience_file)
 
-peducation_file = open('app/static/data/pedu.json')
+peducation_file = open("app/static/data/pedu.json")
 peducation = json.load(peducation_file)
 
-rhobbies_file = open('app/static/data/hobbies.json')
+rhobbies_file = open("app/static/data/hobbies.json")
 rhobbies = json.load(rhobbies_file)
 
 
@@ -28,26 +28,31 @@ rhobbies = json.load(rhobbies_file)
 def index():
     return render_template("index.html", title="Cyber Sapiens", url=os.getenv("URL"))
 
+
 @app.route("/timeline")
 def timeline():
-    return render_template('timeline.html', timeline_profiles=profile)
+    return render_template("timeline.html", timeline_profiles=profile)
+
 
 @app.route("/timeline/Roa/pro")
 def rexperience():
-    return render_template('rexp.html', rexperience=experience, redu=education)
+    return render_template("rexp.html", rexperience=experience, redu=education)
+
 
 @app.route("/timeline/Pedro/pro")
 def experiencep():
-    return render_template('pexp.html', pexperience=pexperience, pedu=peducation)
+    return render_template("pexp.html", pexperience=pexperience, pedu=peducation)
+
 
 @app.route("/timeline/Roa/hobbies")
 def hobbiesr():
-    return render_template('rhobbies.html', rhobbies=rhobbies)
+    return render_template("rhobbies.html", rhobbies=rhobbies)
 
 
-@app.route("/about")
-def about_us():
-    return render_template("about.html")
+# Maps Section
+@app.route("/maps")
+def map():
+    return render_template("maps.html", apikey=os.getenv("mapkey"))
 
 
 if __name__ == "__main__":

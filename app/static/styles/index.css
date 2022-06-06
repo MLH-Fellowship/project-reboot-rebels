@@ -4,19 +4,20 @@ body {
     display: flex;
     flex-direction: column;
     }
-.video {
-    position: absolute;
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
-}
+
   .hero-section {
     display: flex;
     height: 100vh;
-    max-height: 700px;
+    /* max-height: 700px; */
     justify-content: center;
     align-items: center;
   }
+  .video {
+    position: absolute;
+    height: 100vh;
+    object-fit: cover;
+    width: 100%;
+}
   .hero-wrapper {
     position: relative;
     z-index: 20;
