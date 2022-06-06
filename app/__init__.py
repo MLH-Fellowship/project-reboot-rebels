@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/timeline")
 def timeline():
-    return render_template("timeline.html", timeline_profiles=profiles())
+    return render_template("timeline.html", timeline_profiles=profiles)
 
 
 @app.route("/")
