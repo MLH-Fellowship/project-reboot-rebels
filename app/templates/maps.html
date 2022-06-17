@@ -1,6 +1,8 @@
-{% extends "base.html" %} {% block head %}
-
+{% extends "base.html" %}
+{% block head %}
 <title>Cyber Sapiens About Us</title>
+<link type="text/css" href="{{url_for('static', filename='../static/styles/timeline.css')}}" rel='stylesheet' />
+
 <link
   type="text/css"
   href="{{url_for('static', filename='../static/styles/maps.css')}}"
@@ -65,7 +67,9 @@
           </div>
         </div>
       </div>
-      <div id="gmp-map"></div>
+      <div >
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d184552.30943582457!2d-79.3780581!3d43.7182412!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb90d7c63ba5%3A0x323555502ab4c477!2sToronto%2C%20ON!5e0!3m2!1sen!2sca!4v1655500258603!5m2!1sen!2sca" width="100%" height="800" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+     </div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key={{apikey}}&callback=initMap&libraries=places,geometry&solution_channel=GMP_QB_locatorplus_v4_cA" async defer></script>
 

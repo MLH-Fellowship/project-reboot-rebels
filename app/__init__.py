@@ -58,8 +58,7 @@ def hobbiesp():
 # Maps Section
 @app.route("/maps")
 def map():
-    return render_template("maps.html", apikey=os.getenv("mapkey"))
-
+    return render_template("maps.html", apikey=os.getenv("AIzaSyAsAiJlanqrez8e4_k2uFf_KVudt9DCoII"))
 
 if __name__ == "__main__":
     app.debug = True
