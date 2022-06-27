@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block head %}
+        <title>{{title}}</title>
+        <link type="text/css" href="{{url_for('static', filename='../static/styles/timeline.css')}}" rel='stylesheet' />
+        {% endblock %}
+{% block content %}
+<div class="page-wrap">
+    <div class="section-timeline">
+      <div class="container-t">
+        <div class="t_component">
+
+
+            <br><br>          
+ <form action="/api/timeline_post" method="post" enctype="multipart/form-data">
+    <h1 class="search-title">
+    <label for="name">Name:</label><br><br>
+    <input name="name" type="text" id="name"><br><br>
+    <label for="email">Email:</label><br><br>
+    <input name="email" type="text" id="email"><br><br>
+    <label for="content">Content:</label><br><br>
+    <textarea name="content" type="text" id="content"></textarea><br><br>
+    <button type="submit">Submit</button></h1>
+</form>
+
+{% for p in post %}
+<h5>{{p}}</h5>
+  {% endfor %}
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

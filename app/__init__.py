@@ -111,7 +111,8 @@ def get_time_line_post():
 
 @app.route('/timeline')
 def timeline():
-        return render_template('timeline.html', title='Timeline')
+    timeline = TimelinePost.select().order_by(TimelinePost.created_at.desc())
+    return render_template('timeline.html', title="Timeline", timeline=timeline)
 
 if __name__ == "__main__":
     app.debug = True
