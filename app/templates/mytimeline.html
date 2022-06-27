@@ -13,7 +13,7 @@
           </div>
 
 
-          {% for i,j in timeline_profiles.items() %}
+          {% for i,j in mytimeline_profiles.items() %}
 
             <div class="t_item">
               <div id="a" class="t_left">
@@ -28,10 +28,10 @@
                 </div>
                 <div class="margin-bottom-xlarge">
                   <div class="inline-block">
-                    <a href="/timeline/{{ j.0 }}/hobbies">
+                    <a href="/mytimeline/{{ j.0 }}/hobbies">
                       <img src="../static/img/hobbies.png" loading="lazy" alt="" class="link-icon">
                     </a>
-                    <a href="/timeline/{{ j.0 }}/pro">
+                    <a href="/mytimeline/{{ j.0 }}/pro">
                       <img src="../static/img/pro.png" loading="lazy" alt="" class="link-icon">
                     </a>
                   </div>
