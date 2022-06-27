@@ -18,7 +18,7 @@ mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
 print(mydb)
 
 
- class TimelinePost(Model):
+class TimelinePost(Model):
      name = CharField()
      email = CharField()
      content = TextField()
@@ -28,8 +28,8 @@ print(mydb)
          database = mydb
 
 
- mydb.connect()
- mydb.create_tables([TimelinePost])
+mydb.connect()
+mydb.create_tables([TimelinePost])
 
 profile_file = open("app/static/data/profile.json")
 profile = json.load(profile_file)
