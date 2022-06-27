@@ -58,26 +58,26 @@ def index():
     return render_template("index.html", title="Cyber Sapiens", url=os.getenv("URL"))
 
 
-@app.route("/timeline")
-def timeline():
-    return render_template("timeline.html", timeline_profiles=profile)
+@app.route("/mytimeline")
+def mytimeline():
+    return render_template("mytimeline.html", mytimeline_profiles=profile)
 
 
-@app.route("/timeline/Roa/pro")
+@app.route("/mytimeline/Roa/pro")
 def rexperience():
     return render_template("rexp.html", rexperience=experience, redu=education)
 
 
-@app.route("/timeline/Pedro/pro")
+@app.route("/mytimeline/Pedro/pro")
 def experiencep():
     return render_template("pexp.html", pexperience=pexperience, pedu=peducation)
 
 
-@app.route("/timeline/Roa/hobbies")
+@app.route("/mytimeline/Roa/hobbies")
 def hobbiesr():
     return render_template("rhobbies.html", rhobbies=rhobbies)
 
-@app.route("/timeline/Pedro/hobbies")
+@app.route("/mytimeline/Pedro/hobbies")
 def hobbiesp():
     return render_template("phobbies.html", phobbies=phobbies)
 
@@ -108,6 +108,10 @@ def get_time_line_post():
              TimelinePost.select().order_by(TimelinePost.created_at.desc())
          ]
      }
+
+@app.route('/timeline')
+def timeline():
+        return render_template('timeline.html', title='Timeline')
 
 if __name__ == "__main__":
     app.debug = True
