@@ -2,12 +2,15 @@ import os
 from flask import Flask, render_template, request, json
 from dotenv import load_dotenv
 import json
+import requests
+from flask_cors import cross_origin, CORS
 from peewee import *
 from playhouse.shortcuts import model_to_dict
 import datetime
 
 load_dotenv()
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "http://127.0.0.1/"}})
 
 mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
                       user=os.getenv("MYSQL_USER"),
@@ -89,6 +92,7 @@ def map():
 
 
 @app.route("/api/timeline_post", methods=['POST'])
+@cross_origin()
 def post_time_line_post():
      name = request.form['name']
      email = request.form['email']
@@ -111,8 +115,8 @@ def get_time_line_post():
 
 @app.route('/timeline')
 def timeline():
-    timeline = TimelinePost.select().order_by(TimelinePost.created_at.desc())
-    return render_template('timeline.html', title="Timeline", timeline=timeline)
+     timeline = get_time_line_post()["timeline_posts"]
+     return render_template('timeline.html', title="Timeline", url=os.getenv("URL"), timeline=timeline)
 
 if __name__ == "__main__":
     app.debug = True

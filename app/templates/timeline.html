@@ -1,34 +1,59 @@
 {% extends "base.html" %}
 {% block head %}
-        <title>{{title}}</title>
-        <link type="text/css" href="{{url_for('static', filename='../static/styles/timeline.css')}}" rel='stylesheet' />
-        {% endblock %}
+<title>{{title}}</title>
+<link type="text/css" href="{{url_for('static', filename='../static/styles/timeline.css')}}" rel='stylesheet' />
+{% endblock %}
 {% block content %}
 <div class="page-wrap">
-    <div class="section-timeline">
-      <div class="container-t">
-        <div class="t_component">
-
-
-            <br><br>          
- <form action="/api/timeline_post" method="post" enctype="multipart/form-data">
-    <h1 class="search-title">
-    <label for="name">Name:</label><br><br>
-    <input name="name" type="text" id="name"><br><br>
-    <label for="email">Email:</label><br><br>
-    <input name="email" type="text" id="email"><br><br>
-    <label for="content">Content:</label><br><br>
-    <textarea name="content" type="text" id="content"></textarea><br><br>
-    <button type="submit">Submit</button></h1>
-</form>
-
-{% for p in post %}
-<h5>{{p}}</h5>
-  {% endfor %}
-
-
+  <div class="section-timeline">
+    <div class="container-t">
+      <div class="t_component">
+        <br><br>          
+        <form>
+          <h1 class="search-title">
+            <label for="name">Name:</label><br><br>
+            <input name="name" type="text" id="name" required><br><br>
+            <label for="email">Email:</label><br><br>
+            <input name="email" type="text" id="email" required><br><br>
+            <label for="content">Content:</label><br><br>
+            <textarea name="content" type="text" id="content" required></textarea><br><br>
+            <input type="submit" value="Submit">
+          </h1>
+        </form>
+        {% for post in timeline %}
+        <div class="t_text">
+          <h2>{{ post["created_at"] }}</h2>
+          <i>By {{ post["name"] }} ({{ post["email"] }})</i>
+          <p>{{ post["content"] }}</p>
         </div>
+        {% endfor %}
+        <script>
+          const url = '/api/timeline_post'
+          const form = document.getElementById('form');
+          form.addEventListener('submit', function (e) {
+          
+            e.preventDefault();
+              
+              const payload = new FormData(form);
+              console.log(payload.values())
+              
+              fetch(url, {
+                  method: 'POST',
+                  body: payload,
+              })
+              
+                  .then(res => res.json())
+                  .then(data => {
+                      window.location = "/timeline"
+                      console.log(data)
+                  })
+                  .catch(error => alert(error))
+          })
+          
+          
+        </script>
       </div>
     </div>
   </div>
+</div>
 {% endblock %}
