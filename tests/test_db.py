@@ -23,3 +23,11 @@ class TestTimelinePost(unittest.TestCase):
         assert first_post.id == 1
         second_post = TimelinePost.create(name='Jane Doe', email='jame@example.com', content='Hello World, I\'m Jane!')
         assert second_post.id == 2
+
+        time = TimelinePost.select()
+
+        array = []
+        for i in range(len(time)):
+            array.append([time[i].name,time[i].email, time[i].content])
+
+        assert(array[0][0] == first_post.name and array[0][1] == first_post.email and array[0][2] == first_post.content and array[1][0] == second_post.name and array[1][1] == second_post.email and array[1][2] == second_post.content)
