@@ -128,7 +128,7 @@ html {
   .t_image-wrapper {
     overflow: hidden;
     border-radius: 12px;
-    background-image: linear-gradient(138deg, #000, transparent 28%), url('../images/Image-Background.png');
+    background-image: linear-gradient(138deg, #000, transparent 28%);
     background-position: 0px 0px, 0px 0px;
     background-size: auto, cover;
   }
