@@ -69,7 +69,7 @@ phobbies = json.load(phobbies_file)
 
 @app.route("/")
 def index():
-    return render_template("index.html", title="Cyber Sapiens", url=os.getenv("URL"))
+    return render_template("index.html", url=os.getenv("URL"))
 
 
 @app.route("/mytimeline")

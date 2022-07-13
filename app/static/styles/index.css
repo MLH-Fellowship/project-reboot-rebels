@@ -37,6 +37,8 @@ body {
     line-height: 1;
     letter-spacing: 7px;
     text-align: center;
+    font-family: 'Trench', sans-serif;
+    min-height: 650px;
   }
   .hero-paragraph {
     max-width: 550px;
