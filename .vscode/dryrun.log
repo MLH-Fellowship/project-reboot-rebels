@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/roawinchester/MLH-Week2/cyber-sapiens'
-echo "Setting up the project"
-python3 app/__init__.py
-make: Leaving directory `/Users/roawinchester/MLH-Week2/cyber-sapiens'
- 
