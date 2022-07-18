@@ -30,13 +30,7 @@ body {
     right: 0;
     bottom: 0;
   }
-  #map-roa {
-    position: absolute;
-    left: 22em;
-    top: 0;
-    right: 0;
-    bottom: 0;
-  } 
+  
   #locations-panel {
     position: absolute;
     left: 0;
