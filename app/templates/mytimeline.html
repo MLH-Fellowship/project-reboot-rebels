@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block head %}
+        <title>Cyber Sapiens Timeline</title>
+        <link type="text/css" href="{{url_for('static', filename='../static/styles/timeline.css')}}" rel='stylesheet' />
+        {% endblock %}
+{% block content %}
+<div class="page-wrap">
+    <div class="section-timeline">
+      <div class="container-t">
+        <div class="t_component">
+          <div class="t_progress">
+            <div class="t_progress-bar"></div>
+          </div>
+
+
+          {% for i,j in mytimeline_profiles.items() %}
+
+            <div class="t_item">
+              <div id="a" class="t_left">
+                <div class="t_name-text">{{ j.0 }}</div>
+              </div>
+              <div id="b" class="t_centre">
+                <div class="t_circle"></div>
+              </div>
+              <div id="c" >
+                <div class="margin-bottom-xlarge">
+                  <div class="t_text">{{ j.1 }}</div>
+                </div>
+                <div class="margin-bottom-xlarge">
+                  <div class="inline-block">
+                    <a href="/mytimeline/{{ j.0 }}/hobbies">
+                      <img src="../static/img/hobbies.png" loading="lazy" alt="" class="link-icon">
+                    </a>
+                    <a href="/mytimeline/{{ j.0 }}/pro">
+                      <img src="../static/img/pro.png" loading="lazy" alt="" class="link-icon">
+                    </a>
+                  </div>
+                </div>
+                <div class="t_image-wrapper"><img src="../static/img/{{ j.0 }}.png" loading="lazy" width="480" sizes="(max-width: 479px) 48px, (max-width: 767px) 64px, 36vw" srcset="../static/img/{{ j.0 }}.png 500w, ../static/img/{{ j.0 }}.png 800w, ../static/img/{{ j.0 }}.png 960w" alt=""></div>
+              </div>
+            </div>
+            {% endfor %}
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

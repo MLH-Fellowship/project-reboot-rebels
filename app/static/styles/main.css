@@ -3,6 +3,7 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #0a0a0a;
 }
 .navbar {
     position: sticky;
@@ -27,9 +28,10 @@ body {
 }
 .nav-component {
     padding: 0px 25px;
-    font-family: system-ui;
+    font-family: 'Trench', sans-serif;
     color: #000;
     font-weight: 200;
+    font-size: larger;
     cursor: pointer;
 }
 .link {

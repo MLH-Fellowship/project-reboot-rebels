@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/trench');
+
 body {
     margin: 0;
     min-height: 100%;
@@ -14,6 +16,9 @@ body {
     flex-direction: column;
     align-items: center;
     height: 96vh;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 60px;
 }
 .about-accent{
     width: 60px;
@@ -24,8 +29,8 @@ body {
 }
 .about-header {
     max-width: 1100px;
-font-family: 'Heebo';
-    color: rgb(0, 0, 0);
+    font-family: 'Trench', sans-serif;
+    color: #fff;
     font-style: normal;
 font-weight: 900;
     font-size: 85px;
@@ -38,7 +43,7 @@ font-weight: 900;
 .about-paragraph {
 max-width: 800px;
     margin-top: 10px;
-    font-family: 'Heebo';
+    font-family: 'Trench', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 31px;
@@ -48,29 +53,9 @@ align-items: center;
     text-align: center;
    
 
-color: #000000;
+color: #fff;
 /* border: 1px solid #000000; */
 
 }
 
-.about-whitespace {
-    width: 100%;
-    height:100px ;
-    background-color:rgb(0, 0, 0);
-}
-
-.about-whitespace-text {
-    color: rgb(245, 245, 245);
-}
-
-.about-gradient {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 7%;
-    
-    background: linear-gradient(to right, rgb(96, 228, 132),rgb(161, 237, 167), rgb(65, 173, 65),rgb(148, 155, 255), rgb(89, 127, 218));
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    align-items:flex-end;
-}
 
