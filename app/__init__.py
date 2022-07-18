@@ -10,16 +10,7 @@ import datetime
 from flask import Response
 
 load_dotenv()
-app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "http://127.0.0.1/"}})
-
-# mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
-#                       user=os.getenv("MYSQL_USER"),
-#                       password=os.getenv("MYSQL_PASSWORD"),
-#                       host=os.getenv("MYSQL_HOST"),
-#                       port=3306
-#                       )
-# print(mydb)
+app = Flask(__name__, template_folder='templates')
 
 if os.getenv("TESTING") == "true":
     print("Running in test mode")
@@ -103,19 +94,23 @@ def map():
 
 
 @app.route("/api/timeline_post", methods=['POST'])
-@cross_origin()
 def post_time_line_post():
-    name = request.form['name']
-    email = request.form['email']
-    content = request.form['content']
-    
-    # ADDING TEST PORTION
-    # . . . INCOMPLETE
-
-    timeline_post = TimelinePost.create(
-        name=name, email=email, content=content)
-
-    return model_to_dict(timeline_post)
+    name = request.form.get('name')
+    email = request.form.get('email')
+    content = request.form.get('content')
+    if name == '' or name is None:
+        return 'Invalid name', 400
+    elif content == '' or content is None:
+        return 'Invalid content', 400
+    elif email == '' or email is None or '@' not in email:
+        return 'Invalid email', 400
+    else:
+        timeline_post = TimelinePost.create(
+            name = name,
+            email = email,
+            content = content
+        )
+        return model_to_dict(timeline_post)
 
 
 @app.route("/api/timeline_post", methods=['GET'])
